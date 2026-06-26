@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio & Resume | Muhammad Kaisar</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        /* Navbar */
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding-top: 20px;
+            min-height: 70px;
+            border-bottom: #1abc9c 3px solid;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 5px;
+        }
+
+        header .highlight, header .current a {
+            color: #1abc9c;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #1abc9c;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        #showcase {
+            min-height: 400px;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            text-align: center;
+            color: #fff;
+            padding-top: 100px;
+        }
+
+        #showcase h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        #showcase p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            background: #1abc9c;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #16a085;
+        }
+
+        /* Section General */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            font-size: 28px;
+            color: #2c3e50;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #1abc9c;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Profile & Contact */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #f4f7f6;
+            padding-bottom: 5px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* Timeline (Education & Experience) */
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px 30px;
+            position: relative;
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid #1abc9c;
+        }
+
+        .timeline-item h3 {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .timeline-item .meta {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        /* Skills & Languages */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .skills-box, .lang-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background: #e8f8f5;
+            color: #1abc9c;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Portfolio/Project Section */
+        .project-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #1abc9c;
+            margin-top: 20px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            header #branding, header nav, header li {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+            header nav {
+                margin-top: 10px;
+                padding-bottom: 10px;
+            }
+            header li {
+                padding: 5px 0;
+            }
+            .profile-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            #showcase h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Muhammad</span> Kaisar</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#showcase">Home</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#portfolio">Hasil Kerja</a></li>
+                    <li><a href="#pengalaman">Pengalaman</a></li>
+                    <li><a href="#keahlian">Keahlian</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="showcase">
+        <div class="container">
+            <h1>Halo, Saya Muhammad Kaisar</h1>
+            <p>General Manager | Supervisor | Profesional Operasional & Manajemen</p>
+            <a href="#portfolio" class="btn">Lihat Hasil Kerja</a>
+        </div>
+    </section>
+
+    <!-- Profile & Contact Section -->
+    <section id="profil">
+        <div class="container">
+            <h2 class="section-title">Profil Singkat</h2>
+            <div class="profile-grid">
+                <div>
+                    <p>Saya adalah individu yang disiplin, bertanggung jawab, dan mampu bekerja secara individu maupun tim. Memiliki semangat belajar tinggi serta siap berkembang untuk memberikan kontribusi terbaik di lingkungan kerja.</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Data Pribadi</h3>
+                    <p><strong>Tempat, Tgl Lahir:</strong> Malang, 12 Desember 1993</p>
+                    <p><strong>Alamat:</strong> Jalan Kembang No. 50 RT 03 RW 03, Kecamatan Turen, Desa Talok</p>
+                    <p><strong>No. HP:</strong> 088991536673</p>
+                    <p><strong>Email:</strong> kaisaru24@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Hasil Kerja Section -->
+    <section id="portfolio" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Hasil Kerja / Project</h2>
+            <div class="project-card">
+                <h3>CodingCamp Project - Batch 15062026</h3>
+                <p style="margin-bottom: 20px; color: #7f8c8d;">Berikut merupakan tautan atau showcase dari hasil kerja/pelatihan pemrograman yang telah saya selesaikan.</p>
+                <a href="https://kaisaru24-png.github.io/CodingCamp-Batch15062026-kaisar-new1/" target="_blank" class="btn">Kunjungi Hasil Kerja</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="pengalaman">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <h3>GENERAL MANAGER - AMPM GAMING CENTER</h3>
+                    <div class="meta">Februari 2024 - Maret 2026</div>
+                    <ul>
+                        <li>Melakukan pekerjaan sesuai target perusahaan.</li>
+                        <li>Berkoordinasi dengan tim untuk menyelesaikan tugas.</li>
+                        <li>Membuat laporan pekerjaan harian dan bulanan.</li>
+                        <li>Merumuskan Strategi: Menyusun visi, misi, dan rencana strategis jangka panjang untuk pertumbuhan Perusahaan.</li>
+                        <li>Mengelola Operasional: Mengawasi jalannya operasional harian berbagai departemen (pemasaran, keuangan, HRD) untuk meningkatkan alur kerja.</li>
+                        <li>Manajemen Keuangan: Menyusun anggaran operasional dan investasi, serta mengontrol biaya agar sesuai target efisiensi.</li>
+                        <li>Pengambilan Keputusan: Menganalisis data pasar dan pelanggan untuk membuat keputusan strategis yang tepat.</li>
+                        <li>Pengawasan SDM: Memimpin, memotivasi, dan mengevaluasi kinerja tim serta Supervisor di bawahnya.</li>
+                        <li>Implementasi Kebijakan: Memastikan peraturan perusahaan dijalankan sesuai.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>SUPERVISOR - RICKLAND GAMING</h3>
+                    <div class="meta">April 2020 - Oktober 2022</div>
+                    <ul>
+                        <li>Melakukan pekerjaan sesuai target perusahaan.</li>
+                        <li>Berkoordinasi dengan tim untuk menyelesaikan tugas.</li>
+                        <li>Membuat laporan pekerjaan harian dan bulanan.</li>
+                        <li>Mengatur tim untuk mencapai target bulanan.</li>
+                        <li>Bertanggung jawab menyusun strategi, mengawasi Tim, mengelola SDM, serta mengendalikan keuangan guna memastikan profitabilitas dan kepatuhan terhadap kebijakan.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>KARYAWAN - TELEMARKETING BANK DBS TANGERANG</h3>
+                    <div class="meta">Januari 2019 - Februari 2020</div>
+                    <ul>
+                        <li>Melakukan Penjualan Melalui telepon ke Customer.</li>
+                        <li>Melayani Customer Melakukan Pinjaman KPR dan KUR.</li>
+                        <li>Menawarkan Produk Perusahaan kepada calon Customer.</li>
+                        <li>Mendata Customer yang berminat.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>KARYAWAN KONTRAK - SALES AGENT HOME CREDIT INDONESIA</h3>
+                    <div class="meta">Juli 2017 - September 2019</div>
+                    <ul>
+                        <li>Melakukan Penjualan ke Customer secara face to face di Gerai Erafone MOG Malang.</li>
+                        <li>Melayani Customer yang ingin Kredit Elektronik dan handphone sekaligus memasarkan produk handphone Erafone.</li>
+                        <li>Menginput data customer ke aplikasi/Web Perusahaan.</li>
+                        <li>Mensurvey Customer yang sudah di input.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>HOUSEKEEPING - HOTEL SAVANA MALANG</h3>
+                    <div class="meta">Januari 2013 - Juli 2013</div>
+                    <ul>
+                        <li>Pembersihan seluruh kamar tamu.</li>
+                        <li>Pengelolaan LINEN.</li>
+                        <li>Pelaporan dan Administrasi.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="pendidikan" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Pendidikan</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Sastra Inggris - Universitas Kanjuruhan Malang</h3>
+                    <div class="meta">2015 (Tidak Melanjutkan Kuliah)</div>
+                </div>
+                <div class="timeline-item">
+                    <h3>IPS - SMK/SMA PKBM SRIKANDI PAKET C</h3>
+                    <div class="meta">2014 - 2015</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Languages Section -->
+    <section id="keahlian">
+        <div class="container">
+            <h2 class="section-title">Keahlian & Bahasa</h2>
+            <div class="skills-grid">
+                <div class="skills-box">
+                    <h3>Keahlian Utama</h3>
+                    <div class="badge-container">
+                        <span class="badge">Microsoft Office Dasar</span>
+                        <span class="badge">Microsoft Excel Dasar</span>
+                        <span class="badge">Power Point Dasar</span>
+                        <span class="badge">Dasar Editing Video</span>
+                        <span class="badge">Komunikasi yang Baik</span>
+                        <span class="badge">Kerja Sama Tim</span>
+                        <span class="badge">Manajemen Waktu</span>
+                    </div>
+                </div>
+                <div class="lang-box">
+                    <h3>Bahasa yang Dikuasai</h3>
+                    <div class="badge-container">
+                        <span class="badge">Bahasa Indonesia (Aktif)</span>
+                        <span class="badge">Bahasa Inggris (Dasar)</span>
+                        <span class="badge">Bahasa Jepang (Dasar)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Muhammad Kaisar. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
